@@ -6,9 +6,10 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 // import UserProfile from "./components/UserProfile";
 
-// import Header from "./Header";
-// import MainContent from "./MainContent";
-// import Footer from "./Footer";
+import Header from "./Header";
+import MainContent from "./MainContent";
+import Footer from "./Footer";
+import WelcomeMessage from "./components/WelcomeMessage";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -43,12 +44,12 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-      {/* <WelcomeMessage />
-        <div>
+      <WelcomeMessage />
+      <div>
         <Header />
         <MainContent />
         <Footer />
-      </div> */}
+      </div>
     </>
   );
 }
