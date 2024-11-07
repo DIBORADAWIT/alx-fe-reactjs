@@ -9,9 +9,12 @@ import Footer from "./components/Footer";
 import WelcomeMessage from "./components/WelcomeMessage";
 import UserProfile from "./components/UserProfile";
 import Counter from "./components/Counter";
+import ProfilePage from "./ProfilePage";
+import UserContext from "./component/USerContext";
 
 function App() {
   const [count, setCount] = useState(0);
+  const userData = { name: "Jane Doe", email: "jane.doe@example.com" };
 
   return (
     <>
@@ -38,15 +41,14 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-
       <WelcomeMessage />
       <Header />
-
       <UserProfile name="Alice" age="25" bio="Loves hiking and photography" />
-
       <MainContent />
       <Footer />
       <Counter />
+      return <ProfilePage userData={userData} />;
+      <UserContext />
     </>
   );
 }
