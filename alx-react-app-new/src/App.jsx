@@ -1,3 +1,4 @@
+// src/App.jsx
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
@@ -9,15 +10,15 @@ import Footer from "./components/Footer";
 import WelcomeMessage from "./components/WelcomeMessage";
 import UserProfile from "./components/UserProfile";
 import Counter from "./components/Counter";
-import ProfilePage from "./ProfilePage";
-import UserContext from "./component/USerContext";
-
+import ProfilePage from "./components/ProfilePage";
+import UserContext from "./UserContext";
 function App() {
   const [count, setCount] = useState(0);
+
   const userData = { name: "Jane Doe", email: "jane.doe@example.com" };
 
   return (
-    <>
+    <UserContext.Provider value={userData}>
       <div>
         <h1>Welcome to the User Profile App</h1>
       </div>
@@ -47,9 +48,8 @@ function App() {
       <MainContent />
       <Footer />
       <Counter />
-      return <ProfilePage userData={userData} />;
-      <UserContext />
-    </>
+      <ProfilePage />
+    </UserContext.Provider>
   );
 }
 
