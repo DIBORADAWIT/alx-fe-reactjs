@@ -16,9 +16,11 @@ function App() {
   const [count, setCount] = useState(0);
 
   const userData = { name: "Jane Doe", email: "jane.doe@example.com" };
+  return <ProfilePage userData={userData} />;
+}
 
   return (
-    <UserContext value={userData}>
+    <UserContext.Provider value={userData}>
       <div>
         <h1>Welcome to the User Profile App</h1>
       </div>
@@ -44,13 +46,13 @@ function App() {
       </p>
       <WelcomeMessage />
       <Header />
-      <UserProfile name="Alice"  email="jane.doe@example.com" age="25" bio="Loves hiking and photography" />
+      <UserProfile name="Alice" age="25" bio="Loves hiking and photography" />
       <MainContent />
       <Footer />
       <Counter />
       <ProfilePage />
-    </UserContext>
+    </UserContext.Provider>
   );
-}
+
 
 export default App;
