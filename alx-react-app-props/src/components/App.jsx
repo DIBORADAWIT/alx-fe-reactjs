@@ -11,7 +11,7 @@ import WelcomeMessage from "./components/WelcomeMessage";
 import UserProfile from "./components/UserProfile";
 import Counter from "./components/Counter";
 import ProfilePage from "./components/ProfilePage";
-import UserContext from "./UserContext";
+import UserContext from "./components/UserContext";
 function App() {
   const [count, setCount] = useState(0);
 
@@ -44,7 +44,7 @@ function App() {
       </p>
       <WelcomeMessage />
       <Header />
-      <UserProfile name="Alice" age="25" bio="Loves hiking and photography" />
+      <UserProfile name="Alice"  email="jane.doe@example.com" age="25" bio="Loves hiking and photography" />
       <MainContent />
       <Footer />
       <Counter />
