@@ -1,4 +1,3 @@
-// src/App.jsx
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
@@ -12,12 +11,11 @@ import UserProfile from "./components/UserProfile";
 import Counter from "./components/Counter";
 import ProfilePage from "./components/ProfilePage";
 import UserContext from "./components/UserContext";
+
 function App() {
   const [count, setCount] = useState(0);
 
   const userData = { name: "Jane Doe", email: "jane.doe@example.com" };
-  return <ProfilePage userData={userData} />;
-}
 
   return (
     <UserContext.Provider value={userData}>
@@ -50,9 +48,9 @@ function App() {
       <MainContent />
       <Footer />
       <Counter />
-      <ProfilePage />
+      <ProfilePage /> {/* No userData prop needed */}
     </UserContext.Provider>
   );
-
+}
 
 export default App;
