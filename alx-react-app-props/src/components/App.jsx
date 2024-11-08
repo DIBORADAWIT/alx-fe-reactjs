@@ -18,7 +18,7 @@ function App() {
   const userData = { name: "Jane Doe", email: "jane.doe@example.com" };
 
   return (
-    <UserContext.Provider value={userData}>
+    <UserContext value={userData}>
       <div>
         <h1>Welcome to the User Profile App</h1>
       </div>
@@ -49,7 +49,7 @@ function App() {
       <Footer />
       <Counter />
       <ProfilePage />
-    </UserContext.Provider>
+    </UserContext>
   );
 }
 
