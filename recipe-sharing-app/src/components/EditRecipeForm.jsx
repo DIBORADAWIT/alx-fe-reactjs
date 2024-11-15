@@ -1,15 +1,34 @@
-// RecipeDetails component
-import { useRecipeStore } from "./recipeStore";
+import { useState } from "react";
+import useStore from "../useStore";
 
-const RecipeDetails = ({ recipeId }) => {
-  const recipe = useRecipeStore((state) =>
-    state.recipes.find((recipe) => recipe.id === recipeId)
-  );
+function EditRecipeForm({ recipe }) {
+  const [name, setName] = useState(recipe.name);
+  const [ingredients, setIngredients] = useState(recipe.ingredients.join(", "));
+  const updateRecipe = useStore((state) => state.updateRecipe);
+
+  const handleUpdate = () => {
+    updateRecipe(recipe.id, {
+      name,
+      ingredients: ingredients.split(",").map((item) => item.trim()),
+    });
+  };
 
   return (
     <div>
-      <h1>{recipe.title}</h1>
-      <p>{recipe.description}</p>
+      <h3>Edit Recipe</h3>
+      <input
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+      <input
+        type="text"
+        value={ingredients}
+        onChange={(e) => setIngredients(e.target.value)}
+      />
+      <button onClick={handleUpdate}>Save Changes</button>
     </div>
   );
-};
+}
+
+export default EditRecipeForm;
