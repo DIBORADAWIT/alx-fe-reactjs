@@ -1,34 +1,58 @@
-import { useState } from "react";
-import useStore from "../useStore";
+import { useState, useEffect } from "react";
+import { useParams, useHistory } from "react-router-dom";
+import useRecipeStore from "../recipeStore";  
+const EditRecipeForm = () => {
+  const { recipeId } = useParams(); 
+  const history = useHistory(); 
 
-function EditRecipeForm({ recipe }) {
-  const [name, setName] = useState(recipe.name);
-  const [ingredients, setIngredients] = useState(recipe.ingredients.join(", "));
-  const updateRecipe = useStore((state) => state.updateRecipe);
+  const recipe = useRecipeStore((state) =>
+    state.recipes.find((recipe) => recipe.id === parseInt(recipeId))
+  );
 
-  const handleUpdate = () => {
-    updateRecipe(recipe.id, {
-      name,
-      ingredients: ingredients.split(",").map((item) => item.trim()),
-    });
+  if (!recipe) {
+    history.push("/"); 
+    return <p>Recipe not found!</p>;
+  }
+
+  const [title, setTitle] = useState(recipe.title);
+  const [description, setDescription] = useState(recipe.description);
+
+  const updateRecipe = useRecipeStore((state) => state.updateRecipe);
+
+  const handleSubmit = (event) => {
+    event.preventDefault(); 
+
+    updateRecipe(recipe.id, { title, description });
+
+    history.push(`/recipe/${recipe.id}`);
   };
 
   return (
-    <div>
-      <h3>Edit Recipe</h3>
-      <input
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <input
-        type="text"
-        value={ingredients}
-        onChange={(e) => setIngredients(e.target.value)}
-      />
-      <button onClick={handleUpdate}>Save Changes</button>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <h2>Edit Recipe</h2>
+
+      <div>
+        <label>Title</label>
+        <input
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          required
+        />
+      </div>
+
+      <div>
+        <label>Description</label>
+        <textarea
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          required
+        />
+      </div>
+
+      <button type="submit">Update Recipe</button>
+    </form>
   );
-}
+};
 
 export default EditRecipeForm;
