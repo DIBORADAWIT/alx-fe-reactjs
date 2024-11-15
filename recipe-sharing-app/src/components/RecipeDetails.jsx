@@ -1,12 +1,10 @@
 import { useParams } from "react-router-dom";
-import useStore from "../useStore";
-import EditRecipeForm from "./EditRecipeForm";
-import DeleteRecipeButton from "./DeleteRecipeButton";
+import useRecipeStore from "../recipeStore";  
 
 function RecipeDetails() {
-  const { recipeId } = useParams();
-  const recipe = useStore((state) =>
-    state.recipes.find((recipe) => recipe.id === parseInt(recipeId))
+  const { recipeId } = useParams(); 
+  const recipe = useRecipeStore((state) =>
+    state.recipes.find((recipe) => recipe.id === parseInt(recipeId))  
   );
 
   if (!recipe) {
@@ -15,10 +13,9 @@ function RecipeDetails() {
 
   return (
     <div>
-      <h1>{recipe.name}</h1>
-      <p>Ingredients: {recipe.ingredients.join(", ")}</p>
-      <EditRecipeForm recipe={recipe} />
-      <DeleteRecipeButton recipeId={recipe.id} />
+      <h1>{recipe.title}</h1>
+      <p>{recipe.description}</p>
+      {/* You can render the Edit and Delete buttons here */}
     </div>
   );
 }
