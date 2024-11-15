@@ -11,7 +11,8 @@ import UserProfile from "./components/UserProfile";
 import Counter from "./components/Counter";
 import ProfilePage from "./components/ProfilePage";
 import UserContext from "./components/UserContext";
-
+import RecipeLis from "./components/RecipeLis";
+import AddRecipeForm from "./components/AddRecipeForm";
 function App() {
   const [count, setCount] = useState(0);
 
@@ -48,8 +49,12 @@ function App() {
       <MainContent />
       <Footer />
       <Counter />
-      <ProfilePage /> {/* No userData prop needed */}
+      <ProfilePage /> 
+      <RecipeLis/>
+      <AddRecipeForm/>
     </UserContext.Provider>
+    
+    
   );
 }
 
