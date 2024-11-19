@@ -1,17 +1,16 @@
 import { useState } from "react";
-import useStore from "../useStore"; // Use the correct store import
-
+import useStore from "../useStore";
 const AddRecipeForm = () => {
-  const addRecipe = useStore((state) => state.addRecipe); // Add recipe action
+  const addRecipe = useStore((state) => state.addRecipe);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (!title || !description) return; // Basic validation
-    addRecipe({ id: Date.now(), title, description }); // Add a new recipe
+    if (!title || !description) return;
+    addRecipe({ id: Date.now(), title, description });
     setTitle("");
-    setDescription(""); // Reset form inputs
+    setDescription("");
   };
 
   return (
@@ -34,4 +33,4 @@ const AddRecipeForm = () => {
   );
 };
 
-export default AddRecipeForm; // Ensure the component is exported
+export default AddRecipeForm;

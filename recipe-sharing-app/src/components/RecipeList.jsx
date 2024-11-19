@@ -1,15 +1,24 @@
-import useStore from "../useStore"; // Use the correct store import
+import React from "react";
+import useRecipeStore from "../store/recipeStore";
 
 const RecipeList = () => {
-  const recipes = useStore((state) => state.recipes); // Fetch recipes from Zustand store
+  const recipes = useRecipeStore((state) => state.recipes);
 
   return (
     <div>
+      <h2>Recipes</h2>
       {recipes.length === 0 ? (
-        <p>No recipes available. Add some recipes!</p>
+        <p>No recipes available. Add some!</p>
       ) : (
         recipes.map((recipe) => (
-          <div key={recipe.id}>
+          <div
+            key={recipe.id}
+            style={{
+              border: "1px solid #ccc",
+              margin: "10px",
+              padding: "10px",
+            }}
+          >
             <h3>{recipe.title}</h3>
             <p>{recipe.description}</p>
           </div>
@@ -19,4 +28,4 @@ const RecipeList = () => {
   );
 };
 
-export default RecipeList; // Ensure the component is exported
+export default RecipeList;
