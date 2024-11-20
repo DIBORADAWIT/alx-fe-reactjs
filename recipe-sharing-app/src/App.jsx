@@ -4,6 +4,7 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import RecipeList from "./components/RecipeList";
 import AddRecipeForm from "./components/AddRecipeForm";
+import SearchBar from "./components/SearchBar";
 
 import useStore from "./useStore";
 function App() {
@@ -35,6 +36,7 @@ function App() {
         <h1>Recipe Sharing Application</h1>
         <AddRecipeForm />
         <RecipeList />
+        <SearchBar />
       </div>
       <div>
         <h1>Count: {count}</h1>
