@@ -1,9 +1,18 @@
 import React from "react";
 import useRecipeStore from "./recipeStore";
-import UpdateRecipeForm from "./UpdateRecipeForm";
+// import UpdateRecipeForm from "./UpdateRecipeForm";
 
 const RecipeList = () => {
-  const { recipes, deleteRecipe } = useRecipeStore();
+  // const { recipes, deleteRecipe } = useRecipeStore();
+  const recipes = useRecipeStore((state) => state.recipes);
+  const filteredRecipes = useRecipeStore((state) => state.filteredRecipes);
+  const filterRecipes = useRecipeStore((state) => state.filterRecipes);
+  const searchTerm = useRecipeStore((state) => state.searchTerm);
+
+  useEffect(() => {
+    filterRecipes();
+  }, [searchTerm, recipes, filterRecipes]);
+
 
   return (
     <div>
