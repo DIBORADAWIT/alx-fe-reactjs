@@ -1,40 +1,35 @@
-import React from "react";
-import useRecipeStore from "./recipeStore";
-// import UpdateRecipeForm from "./UpdateRecipeForm";
+import React, { useEffect } from "react";
+import { useRecipeStore } from "./recipeStore";
 
 const RecipeList = () => {
-  // const { recipes, deleteRecipe } = useRecipeStore();
-  const recipes = useRecipeStore((state) => state.recipes);
   const filteredRecipes = useRecipeStore((state) => state.filteredRecipes);
   const filterRecipes = useRecipeStore((state) => state.filterRecipes);
   const searchTerm = useRecipeStore((state) => state.searchTerm);
 
   useEffect(() => {
     filterRecipes();
-  }, [searchTerm, recipes, filterRecipes]);
-
+  }, [searchTerm, filterRecipes]);
 
   return (
     <div>
-      {recipes.map((recipe) => (
-        <div
-          key={recipe.id}
-          style={{
-            border: "1px solid #ccc",
-            padding: "10px",
-            marginBottom: "10px",
-          }}
-        >
-          <h3>{recipe.title}</h3>
-          <p>{recipe.description}</p>
-          <button onClick={() => deleteRecipe(recipe.id)}>Delete</button>
-          <UpdateRecipeForm
-            id={recipe.id}
-            currentTitle={recipe.title}
-            currentDescription={recipe.description}
-          />
-        </div>
-      ))}
+      {filteredRecipes.length > 0 ? (
+        filteredRecipes.map((recipe) => (
+          <div
+            key={recipe.id}
+            style={{
+              marginBottom: "1rem",
+              padding: "1rem",
+              border: "1px solid #ccc",
+              borderRadius: "8px",
+            }}
+          >
+            <h3>{recipe.title}</h3>
+            <p>{recipe.description}</p>
+          </div>
+        ))
+      ) : (
+        <p>No recipes found matching your search.</p>
+      )}
     </div>
   );
 };
