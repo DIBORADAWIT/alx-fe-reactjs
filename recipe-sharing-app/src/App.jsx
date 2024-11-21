@@ -34,9 +34,9 @@ function App() {
       </p>
       <div className="App">
         <h1>Recipe Sharing Application</h1>
+        <SearchBar />
         <AddRecipeForm />
         <RecipeList />
-        <SearchBar />
       </div>
       <div>
         <h1>Count: {count}</h1>
