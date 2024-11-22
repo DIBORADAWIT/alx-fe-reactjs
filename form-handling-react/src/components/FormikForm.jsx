@@ -1,89 +1,77 @@
-import React from 'react';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
+import React from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 
-const FormikForm = () => {
-  // Initial form values
-  const initialValues = {
-    username: '',
-    email: '',
-    password: '',
-  };
-
-  // Validation schema using Yup
+const RegistrationForm = () => {
   const validationSchema = Yup.object({
     username: Yup.string()
-      .min(3, 'Username must be at least 3 characters')
-      .required('Username is required'),
+      .min(3, "Username must be at least 3 characters")
+      .required("Username is required"),
     email: Yup.string()
-      .email('Invalid email format')
-      .required('Email is required'),
+      .email("Invalid email address")
+      .required("Email is required"),
     password: Yup.string()
-      .min(6, 'Password must be at least 6 characters')
-      .required('Password is required'),
+      .min(6, "Password must be at least 6 characters")
+      .required("Password is required"),
   });
 
-  // Handle form submission
-  const onSubmit = (values) => {
-    // Simulate form submission
-    console.log('Form Data:', values);
+  const initialValues = {
+    username: "",
+    email: "",
+    password: "",
+  };
+
+  const handleSubmit = (values, { setSubmitting, resetForm }) => {
+    console.log("Form Submitted Successfully:", values);
+    setSubmitting(false);
+    resetForm();
   };
 
   return (
-    <div>
-      <h1>Registration Form</h1>
-
-      {/* Formik Form */}
-      <Formik
-        initialValues={initialValues}
-        validationSchema={validationSchema}
-        onSubmit={onSubmit}
-      >
+    <Formik
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      onSubmit={handleSubmit}
+    >
+      {({ isSubmitting }) => (
         <Form>
-          {/* Username Field */}
           <div>
-            <label htmlFor="username">Username</label>
-            <Field
-              type="text"
-              id="username"
-              name="username"
-              placeholder="Enter your username"
-            />
-            <ErrorMessage name="username" component="div" className="error" />
+            <label htmlFor="username">Username:</label>
+            <Field type="text" id="username" name="username" />
+            <ErrorMessage name="username" component="p" className="error" />
           </div>
 
-          {/* Email Field */}
           <div>
-            <label htmlFor="email">Email</label>
-            <Field
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Enter your email"
-            />
+            <label htmlFor="email">Email:</label>
+            <Field type="email" id="email" name="email" />
+            <ErrorMessage name="email" component="p" className="error" />
+          </div>
+
+          <div>
+            <label htmlFor="password">Password:</label>
+            <Field type="password" id="password" name="password" />
+            <ErrorMessage name="password" component="p" className="error" />
+          </div>
+
+          <div>
+            <label htmlFor="email">Email:</label>
+            <Field type="email" id="email" name="email" />
             <ErrorMessage name="email" component="div" className="error" />
           </div>
 
-          {/* Password Field */}
           <div>
-            <label htmlFor="password">Password</label>
-            <Field
-              type="password"
-              id="password"
-              name="password"
-              placeholder="Enter your password"
-            />
+            <label htmlFor="password">Password:</label>
+            <Field type="password" id="password" name="password" />
             <ErrorMessage name="password" component="div" className="error" />
           </div>
 
-          {/* Submit Button */}
-          <div>
-            <button type="submit">Submit</button>
-          </div>
+          <button type="submit" disabled={isSubmitting}>
+            {isSubmitting ? "Submitting..." : "Register"}
+          </button>
         </Form>
-      </Formik>
-    </div>
+      )}
+    </Formik>
   );
 };
 
-export default FormikForm;
+export default RegistrationForm;
