@@ -26,7 +26,7 @@ const RecipeList = () => {
           >
             <h3>{recipe.title}</h3>
             <p>{recipe.description}</p>
-            <Link to="https://google.com">View Recipe</Link>
+            <Link to="/recipes">View Recipe</Link>
           </div>
         ))
       ) : (
