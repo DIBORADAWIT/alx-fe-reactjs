@@ -1,4 +1,8 @@
-const RecommendationsList = ({ recommendations }) => {
+import useRecipeStore from "./recipeStore";
+
+const RecommendationsList = () => {
+  const recommendations = useRecipeStore((state) => state.recommendations);
+
   return (
     <div className="recommendations">
       <h2>Recommended Recipes</h2>
@@ -16,3 +20,5 @@ const RecommendationsList = ({ recommendations }) => {
     </div>
   );
 };
+
+export default RecommendationsList;
