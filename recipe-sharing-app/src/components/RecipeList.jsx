@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useRecipeStore } from "./recipeStore";
+import useRecipeStore from "./recipeStore";
 
 const RecipeList = () => {
   const filteredRecipes = useRecipeStore((state) => state.filteredRecipes);
@@ -7,7 +7,7 @@ const RecipeList = () => {
   const searchTerm = useRecipeStore((state) => state.searchTerm);
 
   useEffect(() => {
-    filterRecipes();
+    filterRecipes;
   }, [searchTerm, filterRecipes]);
 
   return (

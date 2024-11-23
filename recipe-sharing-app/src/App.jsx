@@ -7,44 +7,17 @@ import AddRecipeForm from "./components/AddRecipeForm";
 import SearchBar from "./components/SearchBar";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-import useStore from "./useStore";
+import useStore from "./components/useStore";
 function App() {
   const [count, setCount] = useState(0);
   const { increment, decrement, reset } = useStore();
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-        <Route path="/about" element={<About />} />
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
       <div className="App">
         <h1>Recipe Sharing Application</h1>
         <SearchBar />
         <AddRecipeForm />
         <RecipeList />
-      </div>
-      <div>
-        <h1>Count: {count}</h1>
-        <button onClick={increment}>Increment</button>
-        <button onClick={decrement}>Decrement</button>
-        <button onClick={reset}>Reset</button>
       </div>
     </>
   );

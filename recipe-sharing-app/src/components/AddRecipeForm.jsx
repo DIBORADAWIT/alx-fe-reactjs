@@ -18,7 +18,10 @@ const AddRecipeForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form
+      onSubmit={handleSubmit}
+      style={{ display: "flex", flexDirection: "column", gap: "20px" }}
+    >
       <input
         type="text"
         placeholder="Recipe Title"
