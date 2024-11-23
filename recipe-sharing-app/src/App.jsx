@@ -18,7 +18,10 @@ function App() {
         <SearchBar />
         <AddRecipeForm />
         <RecipeList />
-        <Route path="/about" element={<></>} />
+        <Routes>
+          <Route path="/" element={<></>} />
+          <Route path="/recipes" element={<></>} />
+        </Routes>
       </div>
     </>
   );
