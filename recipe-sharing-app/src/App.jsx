@@ -5,6 +5,7 @@ import "./App.css";
 import RecipeList from "./components/RecipeList";
 import AddRecipeForm from "./components/AddRecipeForm";
 import SearchBar from "./components/SearchBar";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import useStore from "./useStore";
 function App() {
