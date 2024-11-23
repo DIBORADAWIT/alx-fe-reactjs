@@ -18,6 +18,7 @@ function App() {
         <SearchBar />
         <AddRecipeForm />
         <RecipeList />
+        <Route path="/about" element={<></>} />
       </div>
     </>
   );
