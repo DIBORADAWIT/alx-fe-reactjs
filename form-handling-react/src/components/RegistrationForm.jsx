@@ -8,7 +8,7 @@ const RegistrationForm = () => {
   });
 
   const [username, setUsername] = useState("");
-  const [enail, setEmail] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
@@ -22,12 +22,21 @@ const RegistrationForm = () => {
     e.preventDefault();
     const { username, email, password } = formData;
 
-    if (!username || !email || !password) {
-      setError("All fields are required.");
+    if (!username) {
+      setErrors("All fields are required.");
+      return;
+    }
+    if (!email) {
+      setErrors("All fields are required.");
       return;
     }
 
-    setError("");
+    if (!password) {
+      setErrors("All fields are required.");
+      return;
+    }
+
+    setErrors("");
     console.log("Form submitted:", formData);
     alert("User registered successfully!");
   };
