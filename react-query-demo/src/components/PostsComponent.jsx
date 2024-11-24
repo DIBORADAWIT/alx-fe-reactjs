@@ -27,6 +27,7 @@ const PostsComponent = () => {
   }
 
   ["cacheTime", "staleTime", "refetchOnWindowFocus", "keepPreviousData"];
+  ["button", "onClick"];
 
   return (
     <div>
