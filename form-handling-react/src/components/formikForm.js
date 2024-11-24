@@ -27,6 +27,8 @@ const RegistrationForm = () => {
     resetForm();
   };
 
+  ["string().required"];
+
   return (
     <Formik
       initialValues={initialValues}
