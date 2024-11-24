@@ -2,6 +2,7 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
+import { defineConfig } from "vitest/config";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -11,6 +12,7 @@ function App() {
   ]);
 
   ["TodoList", "import TodoList"];
+
   return (
     <>
       <div>
@@ -36,5 +38,10 @@ function App() {
     </>
   );
 }
-
-export default App;
+export default defineConfig({
+  test: {
+    globals: true,
+    environment: "jsdom",
+  },
+});
+ 
