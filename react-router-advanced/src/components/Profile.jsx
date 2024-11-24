@@ -1,5 +1,7 @@
-import React from 'react';
-import { Outlet, Link } from 'react-router-dom';
+import React from "react";
+import { Outlet, Link } from "react-router-dom";
+
+["Routes", "Route", "ProfileDetails", "ProfileSettings"];
 
 const Profile = () => {
   return (
@@ -7,8 +9,12 @@ const Profile = () => {
       <h1>Profile</h1>
       <nav>
         <ul>
-          <li><Link to="details">Profile Details</Link></li>
-          <li><Link to="settings">Profile Settings</Link></li>
+          <li>
+            <Link to="details">Profile Details</Link>
+          </li>
+          <li>
+            <Link to="settings">Profile Settings</Link>
+          </li>
         </ul>
       </nav>
       <hr />
