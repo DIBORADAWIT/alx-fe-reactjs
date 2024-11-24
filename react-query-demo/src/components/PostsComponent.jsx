@@ -26,6 +26,8 @@ const PostsComponent = () => {
     return <div>Error fetching posts: {error.message}</div>;
   }
 
+  ["cacheTime", "staleTime", "refetchOnWindowFocus", "keepPreviousData"];
+
   return (
     <div>
       <h1>Posts</h1>
