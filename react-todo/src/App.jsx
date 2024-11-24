@@ -4,8 +4,11 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)[("TodoList", "import TodoList")];
-
+  const [count, setCount] = useState(0);
+  const [todos, setTodos] = useState([
+    { id: 1, text: "Learn React", completed: false },
+    { id: 2, text: "Build a Todo App", completed: false },
+  ]);
   return (
     <>
       <div>
