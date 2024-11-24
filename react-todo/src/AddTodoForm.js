@@ -1,19 +1,27 @@
-import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
-import "@testing-library/jest-dom";
-import TodoList from "./TodoList";
-describe("TodoList Component", () => {
-  test("allows adding a new todo", () => {
-    render(<TodoList />);
+import React, { useState } from "react";
 
-    const input = screen.getByPlaceholderText("Add a new todo");
-    const addButton = screen.getByRole("button", { name: /add todo/i });
+const AddTodoForm = ({ onAdd }) => {
+  const [newTodo, setNewTodo] = useState("");
 
-    fireEvent.change(input, { target: { value: "New Todo" } });
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (newTodo.trim()) {
+      onAdd(newTodo);
+      setNewTodo("");
+    }
+  };
 
-    fireEvent.click(addButton);
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="text"
+        value={newTodo}
+        onChange={(e) => setNewTodo(e.target.value)}
+        placeholder="Add a new todo"
+      />
+      <button type="submit">Add Todo</button>
+    </form>
+  );
+};
 
-    const newTodo = screen.getByText("New Todo");
-    expect(newTodo).toBeInTheDocument();
-  });
-});
+export default AddTodoForm;
