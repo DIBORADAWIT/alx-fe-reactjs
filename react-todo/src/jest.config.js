@@ -1,8 +1,9 @@
-module.exports = {
-    testMatch: [
-      "**/__tests__/**/*.[jt]s?(x)",
-      "**/?(*.)+(spec|test).[tj]s?(x)"
-    ],
-    testPathIgnorePatterns: ["\\\\node_modules\\\\"],
+
+export default {
+    testEnvironment: 'jsdom',  
+    transform: {
+      '^.+\\.jsx?$': 'babel-jest',  
+    },
+    testEnvironment: 'jsdom',
   };
   
