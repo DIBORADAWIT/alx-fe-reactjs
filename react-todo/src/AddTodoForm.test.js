@@ -1,15 +1,15 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import AddTodoForm from "./AddTodoForm";
-import { useState } from "react";
-
+import React from "react";
 const mockAddTodo = jest.fn();
 
-describe("AddTodoForm", () => {
-  test("adds a new todo when the form is submitted", () => {
-    render(<AddTodoForm addTodo={mockAddTodo} />);
-
-    const input = screen.getByPlaceholderText("Add a new todo");
-    const button = screen.getByText(/Add Todo/i);
+describe("TodoList Component", () => {
+  test("renders initial todos correctly", () => {
+    render(<TodoList />);
+    const todo1 = screen.getByText("Learn React");
+    const todo2 = screen.getByText("Build a Todo App");
+    expect(todo1).toBeInTheDocument();
+    expect(todo2).toBeInTheDocument();
 
     fireEvent.change(input, { target: { value: "New Todo" } });
 
@@ -20,5 +20,3 @@ describe("AddTodoForm", () => {
     expect(input.value).toBe("");
   });
 });
-// Ensure you export the component as default
-export default AddTodoForm.test;
