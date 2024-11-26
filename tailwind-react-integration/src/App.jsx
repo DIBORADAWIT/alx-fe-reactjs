@@ -1,17 +1,10 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
-import { defineConfig } from "vitest/config";
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0);
-  const [todos, setTodos] = useState([
-    { id: 1, text: "Learn React", completed: false },
-    { id: 2, text: "Build a Todo App", completed: false },
-  ]);
-
-  ["TodoList", "import TodoList"];
+  const [count, setCount] = useState(0)
 
   return (
     <>
@@ -36,11 +29,7 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
     </>
-  );
+  )
 }
-export default defineConfig({
-  test: {
-    globals: true,
-    environment: "jsdom",
-  },
-});
+
+export default App
