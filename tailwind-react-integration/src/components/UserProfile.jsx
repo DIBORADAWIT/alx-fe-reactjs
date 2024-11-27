@@ -9,11 +9,11 @@ function UserProfile() {
       ["md:p-8", "sm:p-4"]
       <h1 className="text-xl text-blue-800 my-4">John Doe</h1>
       <p className="text-gray-600 text-base">
-        ["hover:text-blue-500"] ["hover:scale-110", "transition-transform",
-        "duration-300", "ease-in-out"] ["sm:w-24", "sm:h-24", "md:w-36",
-        "md:h-36"] ["text-lg", "md:text-xl", "text-sm"] ["max-w-xs",
-        "md:max-w-sm"] Developer at Example Co. Loves to write code and explore
-        new technologies.
+        ["hover:shadow-xl"] ["hover:text-blue-500"] ["hover:scale-110",
+        "transition-transform", "duration-300", "ease-in-out"] ["sm:w-24",
+        "sm:h-24", "md:w-36", "md:h-36"] ["text-lg", "md:text-xl", "text-sm"]
+        ["max-w-xs", "md:max-w-sm"] Developer at Example Co. Loves to write code
+        and explore new technologies.
       </p>
     </div>
   );
