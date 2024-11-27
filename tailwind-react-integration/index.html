@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -9,5 +9,16 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <div class="p-4 sm:p-4 md:p-8 max-w-xs sm:max-w-xs md:max-w-sm mx-auto">
+      <h1 class="text-lg sm:text-lg md:text-xl">Responsive Heading</h1>
+      <p class="text-sm sm:text-sm md:text-base">
+        This is a responsive paragraph text.
+      </p>
+      <img
+        class="w-24 h-24 sm:w-24 sm:h-24 md:w-36 md:h-36"
+        src="profile-image.jpg"
+        alt="Profile Image"
+      />
+    </div>
   </body>
 </html>

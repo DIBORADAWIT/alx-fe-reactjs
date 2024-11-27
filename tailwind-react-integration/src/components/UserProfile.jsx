@@ -12,7 +12,9 @@ function UserProfile() {
         technologies.
       </p>
     </div>
+    
   );
+  
 }
 
 export default UserProfile;
