@@ -3,9 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import HomePage from "./components/HomePage";
-import RecipeDetail from "./components/RecipeDetail";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import RecipeDetail from './components/RecipeDetail';
 function App() {
   const [count, setCount] = useState(0);
 
@@ -33,11 +31,11 @@ function App() {
       </p>
       <HomePage />
       <Router>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/recipe/:id" element={<RecipeDetail />} />
-        </Routes>
-      </Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/recipe/:id" element={<RecipeDetail />} />
+      </Routes>
+    </Router>
     </>
   );
 }
