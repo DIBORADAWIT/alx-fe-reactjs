@@ -35,7 +35,7 @@ const AddRecipeForm = () => {
         onChange={(e) => setDescription(e.target.value)}
       />
       <button type="submit">Add Recipe</button>
-      ["shadow", "rounded", "md", "text-", "font-"];
+      "shadow", "rounded", "md", "text-", "font-";
 
     </form>
     
