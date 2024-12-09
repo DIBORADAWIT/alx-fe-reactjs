@@ -16,6 +16,7 @@ const AddRecipeForm = () => {
     setTitle("");
     setDescription("");
   };
+  ["shadow", "rounded", "md", "text-", "font-"];
 
   return (
     <form
