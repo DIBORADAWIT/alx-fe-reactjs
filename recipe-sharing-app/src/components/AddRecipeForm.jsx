@@ -1,31 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const AddRecipeForm = () => {
-  const [title, setTitle] = useState('');
-  const [ingredients, setIngredients] = useState('');
-  const [preparation, setPreparation] = useState('');
+  const [title, setTitle] = useState("");
+  const [ingredients, setIngredients] = useState("");
+  const [preparation, setPreparation] = useState("");
 
   const [errors, setErrors] = useState({
-    title: '',
-    ingredients: '',
-    preparation: '',
+    title: "",
+    ingredients: "",
+    preparation: "",
   });
 
   const validateForm = () => {
     const newErrors = {};
+    ["shadow", "rounded", "md", "text-", "font-"];
 
     if (!title) {
-      newErrors.title = 'Recipe title is required';
+      newErrors.title = "Recipe title is required";
     }
 
     if (!ingredients) {
-      newErrors.ingredients = 'Ingredients are required';
-    } else if (ingredients.split(',').length < 2) {
-      newErrors.ingredients = 'Please provide at least two ingredients';
+      newErrors.ingredients = "Ingredients are required";
+    } else if (ingredients.split(",").length < 2) {
+      newErrors.ingredients = "Please provide at least two ingredients";
     }
 
     if (!preparation) {
-      newErrors.preparation = 'Preparation steps are required';
+      newErrors.preparation = "Preparation steps are required";
     }
 
     setErrors(newErrors);
@@ -36,7 +37,7 @@ const AddRecipeForm = () => {
     e.preventDefault();
 
     if (!validateForm()) {
-      return; 
+      return;
     }
 
     const recipeData = {
@@ -45,11 +46,11 @@ const AddRecipeForm = () => {
       preparation,
     };
 
-    console.log('Recipe Submitted:', recipeData);
+    console.log("Recipe Submitted:", recipeData);
 
-    setTitle('');
-    setIngredients('');
-    setPreparation('');
+    setTitle("");
+    setIngredients("");
+    setPreparation("");
   };
 
   return (
@@ -57,7 +58,9 @@ const AddRecipeForm = () => {
       <h2 className="text-2xl text-center mb-6">Add a New Recipe</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
-          <label htmlFor="title" className="block">Recipe Title:</label>
+          <label htmlFor="title" className="block">
+            Recipe Title:
+          </label>
           <input
             type="text"
             id="title"
@@ -66,11 +69,15 @@ const AddRecipeForm = () => {
             className="mt-2 w-full p-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
             required
           />
-          {errors.title && <p className="text-red-500 text-sm mt-2">{errors.title}</p>}
+          {errors.title && (
+            <p className="text-red-500 text-sm mt-2">{errors.title}</p>
+          )}
         </div>
 
         <div className="mb-4">
-          <label htmlFor="ingredients" className="block">Ingredients (comma-separated):</label>
+          <label htmlFor="ingredients" className="block">
+            Ingredients (comma-separated):
+          </label>
           <textarea
             id="ingredients"
             value={ingredients}
@@ -79,11 +86,15 @@ const AddRecipeForm = () => {
             className="mt-2 w-full p-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
             required
           />
-          {errors.ingredients && <p className="text-red-500 text-sm mt-2">{errors.ingredients}</p>}
+          {errors.ingredients && (
+            <p className="text-red-500 text-sm mt-2">{errors.ingredients}</p>
+          )}
         </div>
 
         <div className="mb-4">
-          <label htmlFor="preparation" className="block">Preparation Steps:</label>
+          <label htmlFor="preparation" className="block">
+            Preparation Steps:
+          </label>
           <textarea
             id="preparation"
             value={preparation}
@@ -92,7 +103,9 @@ const AddRecipeForm = () => {
             className="mt-2 w-full p-3 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
             required
           />
-          {errors.preparation && <p className="text-red-500 text-sm mt-2">{errors.preparation}</p>}
+          {errors.preparation && (
+            <p className="text-red-500 text-sm mt-2">{errors.preparation}</p>
+          )}
         </div>
 
         <button
