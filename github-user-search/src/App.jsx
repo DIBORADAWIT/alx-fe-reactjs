@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "./App.css";
+import Search from "./components/Search";
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [userData, setUserData] = useState(null);
 
-  // Function to handle search submission (You will later integrate the API)
   const handleSearch = () => {
     console.log("Searching for:", searchQuery);
   };
@@ -33,6 +33,7 @@ function App() {
             >
               View Profile
             </a>
+            <Search />
           </div>
         )}
       </div>
