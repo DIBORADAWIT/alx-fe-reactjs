@@ -1,13 +1,64 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
-</html>
+<div class="max-w-2xl mx-auto p-4">
+  <form id="search-form" class="space-y-4">
+    <div>
+      <label for="username" class="block text-sm font-medium text-gray-700">
+        Username
+      </label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+        placeholder="Enter GitHub username"
+      />
+    </div>
+
+    <div>
+      <label for="location" class="block text-sm font-medium text-gray-700">
+        Location
+      </label>
+      <input
+        type="text"
+        id="location"
+        name="location"
+        class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+        placeholder="Enter location"
+      />
+    </div>
+
+    <div>
+      <label for="min-repos" class="block text-sm font-medium text-gray-700">
+        Minimum Repositories
+      </label>
+      <input
+        type="number"
+        id="min-repos"
+        name="min-repos"
+        class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+        placeholder="Enter minimum number of repositories"
+        min="0"
+      />
+    </div>
+
+    <div class="flex justify-end">
+      <button
+        type="submit"
+        class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+      >
+        Search
+      </button>
+    </div>
+    <div id="search-results" class="space-y-4">
+      <!-- Results will be dynamically inserted here -->
+    </div>
+
+    <div id="pagination" class="flex justify-center mt-4">
+      <button
+        id="load-more"
+        class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700"
+      >
+        Load More
+      </button>
+    </div>
+  </form>
+</div>
