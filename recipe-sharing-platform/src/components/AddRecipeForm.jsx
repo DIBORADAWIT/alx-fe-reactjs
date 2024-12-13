@@ -44,7 +44,7 @@ const AddRecipeForm = () => {
       ingredients,
       preparation,
     };
-
+    ["shadow", "rounded", "md", "text-", "font-"];
     console.log("Recipe Submitted:", recipeData);
 
     setTitle("");
